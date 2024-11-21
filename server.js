@@ -29,6 +29,10 @@ app.get('/home', (req, res) => {
     res.render('home');
 });
 
+app.get('/feed',(req,res) => {
+    res.render('feed');
+});
+
 app.listen(3000, () => {
     console.log('Servidor rodando em http://localhost:3000');
 });
