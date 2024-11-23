@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens em Tempo Real</title>
+    <link rel="stylesheet" href="/css/messages.css">
+</head>
+<body>
+    <div class="chat-container">
+        <h1>Mensagens</h1>
+        <div id="messages"></div>
+        <input id="message-input" type="text" placeholder="Digite sua mensagem" />
+        <button id="send-btn">Enviar</button>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-btn');
+        const messagesDiv = document.getElementById('messages');
+
+        // Enviar mensagem
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value.trim();
+            if (message) {
+                socket.emit('chat message', message);
+                messageInput.value = '';
+            }
+        });
+
+        // Exibir mensagem recebida
+        socket.on('chat message', (msg) => {
+            const messageElement = document.createElement('p');
+            messageElement.textContent = msg;
+            messagesDiv.appendChild(messageElement);
+        });
+    </script>
+</body>
+</html>
