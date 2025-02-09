@@ -5,13 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Mini Rede Social</title>
     <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .home-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        a {
+            display: inline-block;
+            margin: 10px 10px 0;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 16px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .button-link {
+            display: inline-block;
+            margin: 20px 10px 0;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .button-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="home-container">
-        <h2>Bem-vindo a sua conta!</h2>
-        <p>Você está logado.</p>
-        <a href="/feed">ir para o feed</a>
-        <a href="/">Sair</a>
+        <h2>Bem-vindo à sua conta!</h2>
+        <p>Você está logado. Explore o conteúdo e interaja com a comunidade.</p>
+        <a href="/feed" class="button-link">Ir para o feed</a>
+        <a href="/" class="button-link">Sair</a>
     </div>
 </body>
 </html>

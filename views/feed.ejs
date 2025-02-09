@@ -1,25 +1,105 @@
 <!DOCTYPE html>
-<html lang="PT-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href=/css/feed.css">
-    <title>Document</title>
+    <title>Timeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .main {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .main h1 {
+            text-align: center;
+            color: #333;
+        }
+        .main a {
+            display: block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #007BFF;
+            text-align: center;
+        }
+        .main a:hover {
+            text-decoration: underline;
+        }
+        #post-cont {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #post-btn {
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #post-btn:hover {
+            background: #0056b3;
+        }
+        .timeline {
+            margin-top: 20px;
+        }
+        .post {
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .post p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-
     <div class="main">
-
         <h1>Timeline</h1>
         <a href="/profile">ir para o perfil</a>
         <input type="text" id="post-cont" placeholder="digite algo">
-    
         <button type="submit" id="post-btn">Postar</button>
-    <p id="item-post" class="post-item">
 
-    </p>
+        <div class="timeline">
+            <!-- Example posts -->
+            <div class="post">
+                <p><strong>User1:</strong> Esse é um exemplo de postagem!</p>
+            </div>
+            <div class="post">
+                <p><strong>User2:</strong> Adorei essa timeline!</p>
+            </div>
+        </div>
     </div>
- <script src="/js/feed.js"></script>
-    
+    <script>
+        document.getElementById('post-btn').addEventListener('click', function() {
+            const postContent = document.getElementById('post-cont').value;
+            if (postContent.trim() === "") {
+                alert("Digite algo para postar!");
+                return;
+            }
+
+            const timeline = document.querySelector('.timeline');
+            const newPost = document.createElement('div');
+            newPost.className = 'post';
+            newPost.innerHTML = `<p><strong>Você:</strong> ${postContent}</p>`;
+            timeline.prepend(newPost);
+
+            document.getElementById('post-cont').value = ""; // Clear input
+        });
+    </script>
 </body>
 </html>

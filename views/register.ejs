@@ -9,16 +9,19 @@
 <body>
     <div class="register-container">
         <h2>Registrar</h2>
-        <form action="/users/register" method="POST">
+        <form action="/register" method="POST">
             <label for="username">Nome de usuário</label>
             <input type="text" id="username" name="username" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
 
             <label for="password">Senha</label>
             <input type="password" id="password" name="password" required>
 
             <button type="submit">Registrar</button>
         </form>
-        <p>Já tem uma conta? <a href="/index">Entre aqui</a></p>
+        <p>Já tem uma conta? <a href="/">Entre aqui</a></p>
     </div>
 </body>
 </html>

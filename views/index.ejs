@@ -3,21 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Mini Rede Social</title>
+    <title>Cadastro - Mini Rede Social</title>
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .button {
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+        }
+        .button:hover {
+            background: #0056b3;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .login-link a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <div>
-    <form action="/users/login" method="POST">
-        <label for="username">Nome de usuário</label>
-        <input type="text" id="username" name="username" required>
-    
-        <label for="password">Senha</label>
-        <input type="password" id="password" name="password" required>
-    
-        <button type="submit">Entrar</button>
-    </form>
-    <p>Não tem uma conta? <a href="/register">Registre-se aqui</a></p>
+    <div class="container">
+        <h1>Cadastro</h1>
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="Nome de usuário" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Senha" required>
+            <input type="password" name="confirm_password" placeholder="Confirme sua senha" required>
+            <button type="submit" class="button">Registrar</button>
+        </form>
+        <div class="login-link">
+            <p>Já tem uma conta? <a href="/home">Entre aqui</a></p>
+        </div>
     </div>
 </body>
 </html>
