@@ -15,4 +15,11 @@ router.get('/profile',(req,res)=>{
 router.get('/messages',(req,res)=>{
     res.render('messages');
 });
+
+
+
+const authController = require('./controllers/authController'); // Importa o controlador
+
+router.post('/register', authController.register);
+
 module.exports = router;

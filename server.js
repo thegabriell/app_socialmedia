@@ -80,11 +80,14 @@ server.listen(PORT, () => {
 
 
 
+const sequelize = require('./config/database');
+
+
 (async () => {
   try {
     await sequelize.authenticate();
-    console.log('Conexão com PostgreSQL foi estabelecida com sucesso!');
+    console.log('🟢 Conexão com PostgreSQL foi estabelecida com sucesso!');
   } catch (error) {
-    console.error('Não foi possível conectar ao banco de dados:', error);
+    console.error('🔴 Não foi possível conectar ao banco de dados:', error);
   }
 })();
